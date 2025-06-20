@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: yellow;
+            margin: 10px 0;
+        }
+
+        .centered {
+            display: flex;
+            flex-direction: column; /* This now stacks the *wrapper divs* */
+            align-items: center; /* Centers the wrapper divs horizontally */
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Style for the new wrapper divs */
+        .input-group {
+            display: flex; /* Make each group a flex container */
+            flex-direction: column; /* Stack label and input inside the group */
+            margin-bottom: 15px; /* Space between each name/password block */
+            width: 100%; /* Ensure group takes full width available in .centered */
+            align-items: center; /* Center label/input within their group */
+        }
+
+        .input-group label {
+            color: white;
+            margin-bottom: 5px; /* Space between label and its input */
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="password"] {
+            width: 200px; /* Consistent width for inputs */
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        form input[type="submit"] {
+            background-color: yellow;
+            color: black;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+            width: 200px; /* Match input width for submit button */
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px; /* Space above the submit button */
+        }
+    </style>
+</head>
+<body>
+    <p>Hi, Welcome to the Signup Page</p>
+    <p>Today is {{ current_date }}</p>
+    <div class="centered">
+        <form action="/submit" method="post">
+            <div class="input-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Enter a Password">
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
