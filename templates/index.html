@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Form</title>
+    <title>Sign Up + To-Do</title>
     <style>
         body {
             background-color: black;
@@ -25,30 +25,31 @@
 
         .centered {
             display: flex;
-            flex-direction: column; /* This now stacks the *wrapper divs* */
-            align-items: center; /* Centers the wrapper divs horizontally */
+            flex-direction: column;
+            align-items: center;
             background-color: #333;
             padding: 20px;
             border-radius: 8px;
+            margin-bottom: 30px;
         }
 
-        /* Style for the new wrapper divs */
         .input-group {
-            display: flex; /* Make each group a flex container */
-            flex-direction: column; /* Stack label and input inside the group */
-            margin-bottom: 15px; /* Space between each name/password block */
-            width: 100%; /* Ensure group takes full width available in .centered */
-            align-items: center; /* Center label/input within their group */
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            width: 100%;
+            align-items: center;
         }
 
         .input-group label {
             color: white;
-            margin-bottom: 5px; /* Space between label and its input */
+            margin-bottom: 5px;
         }
 
         .input-group input[type="text"],
-        .input-group input[type="password"] {
-            width: 200px; /* Consistent width for inputs */
+        .input-group input[type="password"],
+        .input-group textarea {
+            width: 200px;
             padding: 8px;
             border-radius: 4px;
             border: 1px solid #ccc;
@@ -60,17 +61,25 @@
             cursor: pointer;
             border: none;
             font-weight: bold;
-            width: 200px; /* Match input width for submit button */
+            width: 200px;
             padding: 10px;
             border-radius: 4px;
-            margin-top: 10px; /* Space above the submit button */
+            margin-top: 10px;
+        }
+
+        h2 {
+            color: yellow;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <p>Hi, Welcome to the Signup Page</p>
     <p>Today is {{ current_date }}</p>
+
+    <!-- Signup Form -->
     <div class="centered">
+        <h2>Sign Up</h2>
         <form action="/submit" method="post">
             <div class="input-group">
                 <label for="name">Name:</label>
@@ -83,6 +92,24 @@
             </div>
 
             <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- To-Do Form -->
+    <div class="centered">
+        <h2>Create To-Do Item</h2>
+        <form action="/submittodoitem" method="post">
+            <div class="input-group">
+                <label for="itemName">Item Name:</label>
+                <input type="text" name="itemName" id="itemName" placeholder="Enter item name">
+            </div>
+
+            <div class="input-group">
+                <label for="itemDescription">Item Description:</label>
+                <textarea name="itemDescription" id="itemDescription" placeholder="Enter item description"></textarea>
+            </div>
+
+            <input type="submit" value="Add To-Do">
         </form>
     </div>
 </body>
