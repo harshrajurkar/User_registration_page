@@ -31,7 +31,7 @@ def home():
 def name():
     form_data = dict(request.form)
     collection.insert_one(form_data)
-    return "Data has been submitted succesfully"
+    return "Data has been submitted successfully (this is confirmation message)"
 @app.route("/view")
 def view():
     data = collection.find()
